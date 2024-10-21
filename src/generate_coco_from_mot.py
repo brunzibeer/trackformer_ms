@@ -35,7 +35,7 @@ MOT_15_SEQS_INFO = {
 
 def generate_coco_from_mot(split_name='train', seqs_names=None,
                            root_split='train', mots=False, mots_vis=False,
-                           frame_range=None, data_root='data/MOT17'):
+                           frame_range=None, data_root='/homes/mbernardi/git/trackformer_ms/data/MOT17'):
     """
     Generates COCO data from MOT.
     """

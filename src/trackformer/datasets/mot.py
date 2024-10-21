@@ -128,10 +128,12 @@ class WeightedConcatDataset(torch.utils.data.ConcatDataset):
 
 def build_mot(image_set, args):
     if image_set == 'train':
+        args.mot_path_train = f'/homes/mbernardi/git/trackformer_ms/{args.mot_path_train}'
         root = Path(args.mot_path_train)
         prev_frame_rnd_augs = args.track_prev_frame_rnd_augs
         prev_frame_range=args.track_prev_frame_range
     elif image_set == 'val':
+        args.mot_path_val = f'/homes/mbernardi/git/trackformer_ms/{args.mot_path_val}'
         root = Path(args.mot_path_val)
         prev_frame_rnd_augs = 0.0
         prev_frame_range = 1

@@ -10,6 +10,7 @@ from torchvision.datasets import CocoDetection
 from .coco import build as build_coco
 from .crowdhuman import build_crowdhuman
 from .mot import build_mot, build_mot_crowdhuman, build_mot_coco_person
+from .motsynth import build_motsynth
 
 
 def get_coco_api_from_dataset(dataset: Subset) -> COCO:
@@ -44,6 +45,8 @@ def build_dataset(split: str, args: Namespace) -> Dataset:
         # to avoid making panopticapi required for coco
         from .coco_panoptic import build as build_coco_panoptic
         dataset = build_coco_panoptic(split, args)
+    elif args.dataset == 'motsynth':
+        dataset = build_motsynth(split, args)
     else:
         raise ValueError(f'dataset {args.dataset} not supported')
 

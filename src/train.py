@@ -21,18 +21,18 @@ from trackformer.util.plot_utils import get_vis_win_names
 from trackformer.vis import build_visualizers
 
 ex = sacred.Experiment('train')
-ex.add_config('cfgs/train.yaml')
-ex.add_named_config('deformable', 'cfgs/train_deformable.yaml')
-ex.add_named_config('tracking', 'cfgs/train_tracking.yaml')
-ex.add_named_config('crowdhuman', 'cfgs/train_crowdhuman.yaml')
-ex.add_named_config('mot_coco_person', 'cfgs/train_mot_coco_person.yaml')
-ex.add_named_config('mot17_crowdhuman', 'cfgs/train_mot17_crowdhuman.yaml')
-ex.add_named_config('mot17', 'cfgs/train_mot17.yaml')
-ex.add_named_config('mots20', 'cfgs/train_mots20.yaml')
-ex.add_named_config('mot20_crowdhuman', 'cfgs/train_mot20_crowdhuman.yaml')
-ex.add_named_config('coco_person_masks', 'cfgs/train_coco_person_masks.yaml')
-ex.add_named_config('full_res', 'cfgs/train_full_res.yaml')
-ex.add_named_config('multi_frame', 'cfgs/train_multi_frame.yaml')
+ex.add_config('/homes/mbernardi/git/trackformer_ms/cfgs/train.yaml')
+ex.add_named_config('deformable', '/homes/mbernardi/git/trackformer_ms/cfgs/train_deformable.yaml')
+ex.add_named_config('tracking', '/homes/mbernardi/git/trackformer_ms/cfgs/train_tracking.yaml')
+ex.add_named_config('crowdhuman', '/homes/mbernardi/git/trackformer_ms/cfgs/train_crowdhuman.yaml')
+ex.add_named_config('mot_coco_person', '/homes/mbernardi/git/trackformer_ms/cfgs/train_mot_coco_person.yaml')
+ex.add_named_config('mot17_crowdhuman', '/homes/mbernardi/git/trackformer_ms/cfgs/train_mot17_crowdhuman.yaml')
+ex.add_named_config('mot17', '/homes/mbernardi/git/trackformer_ms/cfgs/train_mot17.yaml')
+ex.add_named_config('mots20', '/homes/mbernardi/git/trackformer_ms/cfgs/train_mots20.yaml')
+ex.add_named_config('mot20_crowdhuman', '/homes/mbernardi/git/trackformer_ms/cfgs/train_mot20_crowdhuman.yaml')
+ex.add_named_config('coco_person_masks', '/homes/mbernardi/git/trackformer_ms/cfgs/train_coco_person_masks.yaml')
+ex.add_named_config('full_res', '/homes/mbernardi/git/trackformer_ms/cfgs/train_full_res.yaml')
+ex.add_named_config('multi_frame', '/homes/mbernardi/git/trackformer_ms/cfgs/train_multi_frame.yaml')
 
 
 def train(args: Namespace) -> None:
@@ -147,6 +147,7 @@ def train(args: Namespace) -> None:
 
     best_val_stats = None
     if args.resume:
+        args.resume = f'/homes/mbernardi/git/trackformer_ms/{args.resume}'
         if args.resume.startswith('https'):
             checkpoint = torch.hub.load_state_dict_from_url(
                 args.resume, map_location='cpu', check_hash=True)

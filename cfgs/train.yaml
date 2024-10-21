@@ -93,6 +93,9 @@ train_split: train
 val_split: val
 coco_path: data/coco_2017
 coco_panoptic_path: null
+sample_interval: 10
+motsynth_split_files: /homes/mbernardi/git/trackformer_ms/data/MOTSynth_splits
+motsynth_path: /homes/mbernardi/git/trackformer_ms/data/MOTSynth
 mot_path_train: data/MOT17
 mot_path_val: data/MOT17
 crowdhuman_path: data/CrowdHuman

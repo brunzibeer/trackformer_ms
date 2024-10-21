@@ -22,8 +22,8 @@ from trackformer.util.track_utils import (evaluate_mot_accums, get_mot_accum,
 mm.lap.default_solver = 'lap'
 
 ex = sacred.Experiment('track')
-ex.add_config('cfgs/track.yaml')
-ex.add_named_config('reid', 'cfgs/track_reid.yaml')
+ex.add_config('/homes/mbernardi/git/trackformer_ms/cfgs/track.yaml')
+ex.add_named_config('reid', '/homes/mbernardi/git/trackformer_ms/cfgs/track_reid.yaml')
 
 
 @ex.automain
